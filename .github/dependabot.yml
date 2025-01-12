@@ -1,0 +1,29 @@
+version: 2
+updates:
+- package-ecosystem: gomod
+  directory: /
+  open-pull-requests-limit: 1
+  schedule:
+    interval: weekly
+  groups:
+    go:
+      patterns:
+      - "*"
+- package-ecosystem: docker
+  directory: /
+  open-pull-requests-limit: 1
+  schedule:
+    interval: weekly
+  groups:
+    docker:
+      patterns:
+      - "*"
+- package-ecosystem: github-actions
+  directory: .github/workflows
+  open-pull-requests-limit: 1
+  schedule:
+    interval: weekly
+  groups:
+    actions:
+      patterns:
+      - "*"
