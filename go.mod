@@ -1,6 +1,6 @@
 module github.com/matheuscscp/json-logger-server
 
-go 1.23.3
+go 1.23.5
 
 require github.com/sirupsen/logrus v1.9.3
 
