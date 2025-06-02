@@ -12,7 +12,7 @@ COPY main.go ./
 RUN CGO_ENABLED=0 GOOS=linux go build -ldflags="-w -s" -o json-logger-server \
     github.com/matheuscscp/json-logger-server
 
-FROM alpine:3.21
+FROM alpine:3.22
 
 COPY --from=builder /app/json-logger-server .
 
