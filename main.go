@@ -61,6 +61,13 @@ func main() {
 				tplFuncs := template.FuncMap{
 					"urlencode": url.QueryEscape,
 					"tolower":   strings.ToLower,
+					"get": func(m map[string][]string, key string) string {
+						s := m[key]
+						if len(s) == 0 {
+							return ""
+						}
+						return s[0]
+					},
 				}
 				for i, templateString := range remoteLogger.HTTP.Body.Templates {
 					tpl := template.New(fmt.Sprintf("%s-body-%d", name, i))
