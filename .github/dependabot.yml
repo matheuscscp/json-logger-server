@@ -1,29 +1,19 @@
 version: 2
+multi-ecosystem-groups:
+  project:
+    schedule:
+      interval: weekly
 updates:
 - package-ecosystem: gomod
   directory: /
-  open-pull-requests-limit: 1
-  schedule:
-    interval: weekly
-  groups:
-    go:
-      patterns:
-      - "*"
+  patterns: ["*"]
+  multi-ecosystem-group: project
 - package-ecosystem: docker
   directory: /
-  open-pull-requests-limit: 1
-  schedule:
-    interval: weekly
-  groups:
-    docker:
-      patterns:
-      - "*"
+  patterns: ["*"]
+  multi-ecosystem-group: project
 - package-ecosystem: github-actions
-  directory: .github/workflows
-  open-pull-requests-limit: 1
-  schedule:
-    interval: weekly
-  groups:
-    actions:
-      patterns:
-      - "*"
+  directories:
+  - .github/workflows
+  patterns: ["*"]
+  multi-ecosystem-group: project
