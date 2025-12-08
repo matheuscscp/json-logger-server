@@ -1,4 +1,4 @@
-FROM golang:1.25.4-alpine3.21 AS builder
+FROM golang:1.25.5-alpine3.21 AS builder
 
 WORKDIR /app
 
@@ -12,7 +12,7 @@ COPY main.go ./
 RUN CGO_ENABLED=0 GOOS=linux go build -ldflags="-w -s" -o json-logger-server \
     github.com/matheuscscp/json-logger-server
 
-FROM alpine:3.22
+FROM alpine:3.23
 
 COPY --from=builder /app/json-logger-server .
 
